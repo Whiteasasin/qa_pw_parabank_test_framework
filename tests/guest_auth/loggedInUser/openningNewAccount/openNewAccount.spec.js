@@ -1,5 +1,5 @@
-import { test } from '../../_fixtures/fixtures';
-import { signUpAccount } from '../../../src/ui/actions/signUpAccount';
+import { test } from '../../../_fixtures/fixtures';
+import { signUpAccount } from '../../../../src/ui/actions/signUpAccount';
 import * as allure from 'allure-js-commons';
 
 const testParameters = [

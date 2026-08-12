@@ -1,7 +1,7 @@
-import { test } from '../../../_fixtures/fixtures';
-import { signUpAccount } from '../../../../src/ui/actions/signUpAccount';
-import { openAddtionalAccount } from '../../../../src/ui/actions/openAdditionalAccount';
-import { getTodayDateString } from '../../../../src/common/helpers/dateHelpers';
+import { test } from '../../../../_fixtures/fixtures';
+import { signUpAccount } from '../../../../../src/ui/actions/signUpAccount';
+import { openAdditionalAccount } from '../../../../../src/ui/actions/openAdditionalAccount';
+import { getTodayDateString } from '../../../../../src/common/helpers/dateHelpers';
 import * as allure from 'allure-js-commons';
 
 let defaultAccount;
@@ -24,7 +24,7 @@ test.beforeEach(
     defaultAccount = await accountsOverviewPage.getDefaultAccountId();
     defaultBalance =
       await accountsOverviewPage.getAccountBalanceByAccountId(defaultAccount);
-    additionalAccount = await openAddtionalAccount(
+    additionalAccount = await openAdditionalAccount(
       page,
       'SAVINGS',
       openNewAccountPage,

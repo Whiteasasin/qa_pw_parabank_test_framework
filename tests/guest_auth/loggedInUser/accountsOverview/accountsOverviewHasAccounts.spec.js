@@ -1,6 +1,6 @@
-import { test } from '../../_fixtures/fixtures';
-import { signUpAccount } from '../../../src/ui/actions/signUpAccount';
-import { openAddtionalAccount } from '../../../src/ui/actions/openAdditionalAccount';
+import { test } from '../../../_fixtures/fixtures';
+import { signUpAccount } from '../../../../src/ui/actions/signUpAccount';
+import { openAdditionalAccount } from '../../../../src/ui/actions/openAdditionalAccount';
 import * as allure from 'allure-js-commons';
 
 let defaultAccountId, accountBalance, avaliableAmount;

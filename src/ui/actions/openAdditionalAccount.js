@@ -1,8 +1,8 @@
 import { OpenNewAccountPage } from '../pages/OpenNewAccountPage';
-import { AccountNavigationMenu } from '../../components/AccountNavigationMenu';
+import { AccountNavigationMenu } from '../../common/components/AccountNavigationMenu';
 import { testStep } from '../../common/helpers/pwHelpers';
 
-export async function openAddtionalAccount(page, accountType) {
+export async function openAdditionalAccount(page, accountType) {
   return await testStep(`Open an addtional account`, async () => {
     const accountNavigationMenu = new AccountNavigationMenu(page);
     const openNewAccountPage = new OpenNewAccountPage(page);

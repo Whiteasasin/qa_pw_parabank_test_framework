@@ -1,6 +1,6 @@
-import { test } from '../../_fixtures/fixtures';
-import { signUpAccount } from '../../../src/ui/actions/signUpAccount';
-import { generateBillPayData } from '../../../src/common/helpers/testData/generateBillPayData';
+import { test } from '../../../_fixtures/fixtures';
+import { signUpAccount } from '../../../../src/ui/actions/signUpAccount';
+import { generateBillPayData } from '../../../../src/common/helpers/testData/generateBillPayData';
 import * as allure from 'allure-js-commons';
 
 test.beforeEach(async ({ page, account }) => {
