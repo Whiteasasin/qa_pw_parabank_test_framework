@@ -1,4 +1,3 @@
-
 // @param {'MM-DD-YYYY' | 'DD-MM-YYYY'} format
 //  * @returns {string}
 

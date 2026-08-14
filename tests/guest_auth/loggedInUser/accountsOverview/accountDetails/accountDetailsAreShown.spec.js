@@ -16,9 +16,9 @@ test('User is able to see account details', async ({
   const accountId = await accountsOverviewPage.getDefaultAccountId();
   const accountBalance =
     await accountsOverviewPage.getAccountBalanceByAccountId(accountId);
-  console.log(accountBalance);
+
   const avaliableAmount =
-    await accountsOverviewPage.getAvaliableAmountByAccountId(accountId);
+    await accountsOverviewPage.getAvailableAmountByAccountId(accountId);
   await accountsOverviewPage.clickOnAccountLink(accountId);
   await accountActivityPage.assertAccountDetailsHeaderIsShown();
   await accountActivityPage.assertAccountNumberIsCorrect(accountId);

@@ -33,7 +33,7 @@ export class RequestLoanPage {
       await this.inputTextLocator('Down Payment:').fill(downPayment);
     });
   }
- 
+
   async selectFromAccountId(fromAccountId) {
     await this.step(`Select From account #`, async () => {
       await this.accountFromSelect.selectOption({ value: fromAccountId });

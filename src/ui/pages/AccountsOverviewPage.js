@@ -68,7 +68,7 @@ export class AccountsOverviewPage {
     });
   }
 
-  async assertValuesAreEqual(actualBalance, expectedBalance){
+  async assertValuesAreEqual(actualBalance, expectedBalance) {
     await this.step(
       `Assert balance for the account equals to ${expectedBalance}`,
       async () => {

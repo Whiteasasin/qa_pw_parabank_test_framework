@@ -53,22 +53,17 @@ export class TransactionDetailsPage {
 
   async assertTransactionId(transactionId) {
     return await this.step(`Assert transaction ID`, async () => {
-      const actualTransactionId = await this.transactionIdLocator.textContent();
-      await expect(actualTransactionId).toHaveText(transactionId);
+      await expect(this.transactionIdLocator).toHaveText(transactionId);
     });
   }
   async assertTransactionDate(transactionDate) {
     return await this.step(`Assert transaction date`, async () => {
-      const actualTransactionDate =
-        await this.transactionDateLocator.textContent();
-      await expect(actualTransactionDate).toHaveText(transactionDate);
+      await expect(this.transactionDateLocator).toHaveText(transactionDate);
     });
   }
   async assertTransactionDescription(transactionDescription) {
     return await this.step(`Assert transaction description`, async () => {
-      const actualTransactionDescription =
-        await this.transactionDescriptionLocator.textContent();
-      await expect(actualTransactionDescription).toHaveText(
+      await expect(this.transactionDescriptionLocator).toHaveText(
         transactionDescription,
       );
     });

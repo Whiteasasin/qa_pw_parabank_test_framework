@@ -14,6 +14,8 @@ test('User is able to make a bill payment', async ({
   accountActivityPage,
 }) => {
   await allure.severity('critical');
+
+  const billPayAmaunt= '100';
   await accountNavigationMenu.openBillPayPage();
   const billPayData = generateBillPayData();
   await billPayPage.fillPayeeName(billPayData.payeeName);
@@ -24,7 +26,7 @@ test('User is able to make a bill payment', async ({
   await billPayPage.fillPhone(billPayData.phone);
   await billPayPage.fillAccountNumber(billPayData.accountNumber);
   await billPayPage.fillVerifyAccountNumber(billPayData.accountNumber);
-  await billPayPage.fillAmount('100');
+  await billPayPage.fillAmount(billPayAmaunt);
   await billPayPage.clickSendPaymentButton();
   await billPayPage.assertSuccessPaymentMessageIsShown(
     billPayData.payeeName,
@@ -39,5 +41,5 @@ test('User is able to make a bill payment', async ({
     1,
     `Bill Payment to ${billPayData.payeeName}`,
   );
-  await accountActivityPage.assertTransactionDebit(1, 100);
+  await accountActivityPage.assertTransactionDebit(1, billPayAmaunt);
 });

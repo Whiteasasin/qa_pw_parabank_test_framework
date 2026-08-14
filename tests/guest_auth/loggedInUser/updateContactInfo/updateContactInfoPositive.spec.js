@@ -1,4 +1,5 @@
-import { test } from '../../../_fixtures/fixtures';import { signUpAccount } from '../../../../src/ui/actions/signUpAccount';
+import { test } from '../../../_fixtures/fixtures';
+import { signUpAccount } from '../../../../src/ui/actions/signUpAccount';
 import { generateNewAccountData } from '../../../../src/common/helpers/testData/generateNewAccountData';
 import * as allure from 'allure-js-commons';
 let defaultUser;

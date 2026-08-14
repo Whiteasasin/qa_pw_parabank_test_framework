@@ -233,22 +233,22 @@ export class AccountActivityPage {
     );
   }
 
-  async assertTransactionDetails(
-    transactionOrder,
-    expectedDate,
-    expectedType,
-    expectedDebit,
-    expectedCredit,
-  ) {
+  async assertTransactionDetails({
+    rowNumber,
+    date,
+    type,
+    debit,
+    credit,
+  }) {
     await this.step(
-      `Assert that transaction details for ${transactionOrder}`,
+      `Assert that transaction details for ${rowNumber}`,
       async () => {
         const transaction =
-          await this.parseTransactionRowByOrder(transactionOrder);
-        expect(transaction.date).toEqual(expectedDate);
-        expect(transaction.type).toEqual(expectedType);
-        expect(transaction.debit).toEqual(expectedDebit);
-        expect(transaction.credit).toEqual(expectedCredit);
+          await this.parseTransactionRowByOrder(rowNumber);
+        expect(transaction.date).toEqual(date);
+        expect(transaction.type).toEqual(type);
+        expect(transaction.debit).toEqual(debit);
+        expect(transaction.credit).toEqual(credit);
       },
     );
   }

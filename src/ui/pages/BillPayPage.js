@@ -4,8 +4,9 @@ export class BillPayPage {
   constructor(page, userId = 0) {
     this.page = page;
     this.userId = userId;
-    this.sendPaymentButton = this.page
-      .getByRole('button', { name: 'Send Payment' });
+    this.sendPaymentButton = this.page.getByRole('button', {
+      name: 'Send Payment',
+    });
   }
 
   inputTextLocator(inputName) {
@@ -68,8 +69,9 @@ export class BillPayPage {
 
   async fillVerifyAccountNumber(accountNumber) {
     await this.step(`Fill the Verify Account #`, async () => {
-      await this.inputTextLocator('Verify Account #:')
-      .fill(accountNumber.toString());
+      await this.inputTextLocator('Verify Account #:').fill(
+        accountNumber.toString(),
+      );
     });
   }
 
@@ -121,8 +123,9 @@ export class BillPayPage {
     await this.step(
       `Assert payment to ${payeeName} for $${amount} is successful`,
       async () => {
-        await expect(this.page
-          .getByText('Bill Payment Complete')).toBeVisible();
+        await expect(
+          this.page.getByText('Bill Payment Complete'),
+        ).toBeVisible();
         await expect(this.page.getByText(payeeName)).toBeVisible();
         await expect(this.page.getByText(`$${amount}`)).toBeVisible();
       },

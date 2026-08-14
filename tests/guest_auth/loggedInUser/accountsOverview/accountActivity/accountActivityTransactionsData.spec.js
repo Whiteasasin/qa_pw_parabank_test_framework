@@ -56,19 +56,19 @@ test('Account activity table shows proper transaction data', async ({
   await accountActivityPage.assertTransactionsLoaded();
   const todayDate = getTodayDateString('MM-DD-YYYY');
 
-  await accountActivityPage.assertTransactionDetails(
-    1,
-    todayDate,
-    'Funds Transfer Received',
-    null,
-    additionalBalance,
-  );
+  await accountActivityPage.assertTransactionDetails({
+    rowNumber: 1,
+    type: 'Funds Transfer Received',
+    date: todayDate,
+    debit: null,
+    credit: additionalBalance,
+});
 
-  await accountActivityPage.assertTransactionDetails(
-    2,
-    todayDate,
-    'Funds Transfer Sent',
-    moneyToSend,
-    null,
-  );
+  await accountActivityPage.assertTransactionDetails({
+    rowNumber: 2,
+    date: todayDate,
+    type: 'Funds Transfer Sent',
+    debit: null,
+    credit: moneyToSend,
+});
 });
