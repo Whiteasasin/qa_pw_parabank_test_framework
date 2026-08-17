@@ -1,5 +1,5 @@
-// import { testStep, expect } from '../common/helpers/pwHelpers';
 import { testStep, expect } from '../helpers/pwHelpers';
+
 export class AccountNavigationMenu {
   constructor(page, userId = 0) {
     this.page = page;
@@ -10,6 +10,20 @@ export class AccountNavigationMenu {
     this.accountNavigationMenuLocator = this.page
       .locator('#leftPanel')
       .filter({ hasText: 'Account Services' });
+    this.accountsOverviewHeading = this.page
+      .getByRole('heading', { name: 'Accounts Overview', exact: true });
+    this.transferFundsHeading = this.page
+      .getByRole('heading', { name: 'Transfer Funds', exact: true });
+    this.findTransactionsHeading = this.page
+      .getByRole('heading', { name: 'Find Transactions', exact: true });
+    this.updateProfileHeading = this.page
+      .getByRole('heading', { name: 'Update Profile', exact: true });
+    this.updateProfileHeading = this.page
+      .getByRole('heading', { name: 'Update Profile', exact: true });
+    this.billPayHeading = this.page
+      .getByRole('heading', { name: 'Bill Payment Service', exact: true });
+    this.requestLoanHeading = this.page
+      .getByRole('heading', { name: 'Apply for a Loan', exact: true });
   }
 
   async step(title, stepToRun) {
@@ -28,7 +42,7 @@ export class AccountNavigationMenu {
     });
   }
 
-  //Accoutns overview page
+
   async openAccountsOverviewPage() {
     await this.step('Open "Accounts Overview" page', async () => {
       await this.clickAccountsOverview();
@@ -44,17 +58,12 @@ export class AccountNavigationMenu {
 
   async assertAccountsOverviewPageOpened() {
     await this.step(`Assert the Account Overview page is open`, async () => {
-      await expect(
-        this.page.getByRole('heading', {
-          name: 'Accounts Overview',
-          exact: true,
-        }),
-      ).toBeVisible();
+      await expect(this.accountsOverviewHeading).toBeVisible();
       await expect(this.page.getByRole('row')).not.toHaveCount(2);
     });
   }
 
-  //Transfer funds page
+
   async openTransferFundsPage() {
     await this.step('Open "Transfer Funds" page', async () => {
       await this.clickTransferFunds();
@@ -65,24 +74,18 @@ export class AccountNavigationMenu {
   async clickTransferFunds() {
     await this.step('Click "Transfer Funds" link', async () => {
       await this.accountNavigationMenuItem('Transfer Funds').click();
-      await this.assertTransferPageOpened();
     });
   }
 
   async assertTransferPageOpened() {
     await this.step(`Assert that Transfer Funds Page is opened`, async () => {
-      await expect(
-        this.page.getByRole('heading', {
-          name: 'Transfer Funds',
-          exact: true,
-        }),
-      ).toBeVisible();
+      await expect(this.transferFundsHeading).toBeVisible();
       await expect(this.accountFromSelect.locator('option')).not.toHaveCount(0);
       await expect(this.accountToSelect.locator('option')).not.toHaveCount(0);
     });
   }
 
-  //bill pay page
+
   async openBillPayPage() {
     await this.step('Open "Bill Pay" page', async () => {
       await this.clickBillPay();
@@ -92,12 +95,7 @@ export class AccountNavigationMenu {
 
   async assertBillPayPageIsOpen() {
     await this.step(`Assert that Bill Pay Page is opened`, async () => {
-      await expect(
-        this.page.getByRole('heading', {
-          name: 'Bill Payment Service',
-          exact: true,
-        }),
-      ).toBeVisible();
+      await expect(this.billPayHeading).toBeVisible();
       await expect(
         this.page
           .getByRole('row')
@@ -114,7 +112,7 @@ export class AccountNavigationMenu {
     });
   }
 
-  //Find transactions page
+
   async openFindTransactionsPage() {
     await this.step('Open "Find Transactions" page', async () => {
       await this.clickFindTransactions();
@@ -126,23 +124,19 @@ export class AccountNavigationMenu {
     await this.step(
       `Assert that Find Transactions Page is opened`,
       async () => {
-        await expect(
-          this.page.getByRole('heading', {
-            name: 'Find Transactions',
-            exact: true,
-          }),
-        ).toBeVisible();
+        await expect(this.findTransactionsHeading).toBeVisible();
         await expect(this.accountSelect.locator('option')).not.toHaveCount(0);
       },
     );
   }
+
   async clickFindTransactions() {
     await this.step('Click "Find Transactions" link', async () => {
       await this.accountNavigationMenuItem('Find Transactions').click();
     });
   }
 
-  //Update contact info page
+
   async openUpdateContactInfoPage() {
     await this.step('Open "Update Contact Info" page', async () => {
       await this.clickUpdateContactInfo();
@@ -151,18 +145,13 @@ export class AccountNavigationMenu {
   }
 
   async assertUpdateContactInfoPageIsOpen() {
-    await this.step(
-      `Assert that Update Contact Info Page is opened`,
-      async () => {
-        await expect(
-          this.page.getByRole('heading', {
-            name: 'Update Profile',
-            exact: true,
-          }),
-        ).toBeVisible();
-      },
-    );
-  }
+  await this.step(
+    `Assert that Update Contact Info Page is opened`,
+    async () => {
+      await expect(this.updateProfileHeading).toBeVisible();
+    },
+  );
+}
 
   async clickUpdateContactInfo() {
     await this.step('Click "Update Contact Info" link', async () => {
@@ -170,7 +159,7 @@ export class AccountNavigationMenu {
     });
   }
 
-  // Request loan page
+
   async openRequestLoanPage() {
     await this.step('Open "Request Loan" page', async () => {
       await this.clickRequestLoan();
@@ -180,12 +169,7 @@ export class AccountNavigationMenu {
 
   async assertRequestLoanPageIsOpen() {
     await this.step(`Assert that Request Loan Page is opened`, async () => {
-      await expect(
-        this.page.getByRole('heading', {
-          name: 'Apply for a Loan',
-          exact: true,
-        }),
-      ).toBeVisible();
+      await expect(this.requestLoanHeading).toBeVisible();
     });
   }
 

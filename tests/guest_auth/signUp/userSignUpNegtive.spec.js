@@ -67,18 +67,9 @@ testParameters.forEach(({ message, title, fieldToEmpty }) => {
       await allure.severity('critical');
 
       const payload = {
-        firstname: account.firstname,
-        lastname: fieldToEmpty === 'lastname' ? '' : account.lastname,
-        address: fieldToEmpty === 'address' ? '' : account.address,
-        city: fieldToEmpty === 'city' ? '' : account.city,
-        state: fieldToEmpty === 'state' ? '' : account.state,
-        zipcode: fieldToEmpty === 'zipcode' ? '' : account.zipcode,
-        phone: account.phone,
-        ssn: fieldToEmpty === 'ssn' ? '' : account.ssn,
-        username: fieldToEmpty === 'username' ? '' : account.username,
-        password: fieldToEmpty === 'password' ? '' : account.password,
-        confirmpassword:
-          fieldToEmpty === 'confirmpassword' ? '' : account.password,
+        ...account,
+        confirmpassword: account.password,
+        [fieldToEmpty]: '',
       };
 
       await homePage.open();
