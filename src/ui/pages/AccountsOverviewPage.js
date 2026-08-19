@@ -30,7 +30,6 @@ export class AccountsOverviewPage {
           .getByRole('cell')
           .nth(1)
           .textContent();
-        console.log(textBalance);
 
         return parseFloat(textBalance.replace(/[^0-9.-]+/g, ''));
       },

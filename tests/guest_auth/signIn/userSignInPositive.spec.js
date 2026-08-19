@@ -1,6 +1,7 @@
 import { test } from '../../_fixtures/fixtures';
 import { signUpAccount } from '../../../src/ui/actions/signUpAccount';
 import * as allure from 'allure-js-commons';
+
 let accountUsername, accountPassword;
 test.beforeEach(async ({ page, account, accountNavigationMenu }) => {
   await signUpAccount(page, account);

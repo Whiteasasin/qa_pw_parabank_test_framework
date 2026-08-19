@@ -6,7 +6,8 @@ test.beforeEach(async ({ page, account }) => {
   await signUpAccount(page, account);
 });
 
-test('User is able to log out', async ({ page, accountNavigationMenu }) => {
+test('User is able to log out', async ({ accountNavigationMenu, homePage }) => {
   await allure.severity('critical');
   await accountNavigationMenu.clickLogOut();
+  await homePage.assertLoginFormIsShown();
 });

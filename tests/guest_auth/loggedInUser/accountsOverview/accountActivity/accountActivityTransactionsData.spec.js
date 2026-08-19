@@ -70,5 +70,5 @@ test('Account activity table shows proper transaction data', async ({
     type: 'Funds Transfer Sent',
     debit: null,
     credit: moneyToSend,
-});
+  });
 });

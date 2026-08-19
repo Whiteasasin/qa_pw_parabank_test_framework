@@ -57,4 +57,11 @@ export class HomePage {
       await expect(this.page.getByText(message)).toBeVisible();
     });
   }
+
+  async assertLoginFormIsShown() {
+    await this.step(`Assert login form is shown after logout`, async () => {
+      await expect(this.page
+        .getByRole('button', { name: 'Log In' })).toBeVisible();
+    });
+  }
 }

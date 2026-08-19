@@ -46,7 +46,6 @@ test('User is able to filter activities by current month', async ({
 }) => {
   await allure.severity('major');
   const currentMonth = getCurrentMonth();
-  console.log(currentMonth);
   await accountActivityPage.selectMonthToFiterByPeriod(currentMonth);
   await accountActivityPage.clickGoButton();
   await accountActivityPage.assertCountOfTransactions(2);
@@ -59,7 +58,6 @@ test('User is able to filter activities by previous month', async ({
 }) => {
   await allure.severity('normal');
   const currentMonth = getCurrentMonth(-1);
-  console.log(currentMonth);
   await accountActivityPage.selectMonthToFiterByPeriod(currentMonth);
   await accountActivityPage.clickGoButton();
   await accountActivityPage.assertNoTransactionsErrorIsShown();

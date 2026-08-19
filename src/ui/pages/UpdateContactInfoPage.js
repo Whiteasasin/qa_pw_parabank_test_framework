@@ -7,6 +7,9 @@ export class UpdateContactInfoPage {
     this.updateProfileButton = this.page.getByRole('button', {
       name: 'Update Profile',
     });
+    this.updateSuccessMessage = this.page.getByText(
+      'Your updated address and phone number have been added to the system.',
+    );
   }
 
   inputTextLocator(inputName) {
